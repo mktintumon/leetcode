@@ -1,36 +1,36 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        Stack<Character> st = new Stack<>();
-        Stack<Character> tt = new Stack<>();
+        Stack<Character> ss = new Stack<>();
+        Stack<Character> ts = new Stack<>();
         
         for(int i= 0 ; i<s.length() ; i++){
             char ch = s.charAt(i);
             
             if(ch == '#'){
-                if(st.size() != 0) 
-                    st.pop();
+                if(ss.size() != 0) 
+                    ss.pop();
                     continue;
             }
             
-            st.push(ch);
+            ss.push(ch);
         }
         
         for(int i= 0 ; i<t.length() ; i++){
             char ch = t.charAt(i);
             
             if(ch == '#'){
-               if(tt.size() != 0) 
-                   tt.pop();
+               if(ts.size() != 0) 
+                   ts.pop();
                    continue;
             }
             
-            tt.push(ch);
+            ts.push(ch);
         }
         
-        if(st.size() != tt.size()) return false;
+        if(ss.size() != ts.size()) return false;
         
-        while(st.size() > 0){
-            if(st.pop() != tt.pop()) return false;
+        while(ss.size() > 0){
+            if(ss.pop() != ts.pop()) return false;
         }
         
         return true;
