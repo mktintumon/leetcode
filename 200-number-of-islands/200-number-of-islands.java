@@ -1,26 +1,24 @@
 class Solution {
+    static int[][] dir = {{-1,0},{0,-1},{1,0},{0,1}}; 
     
-    static int[][] dir = {{-1,0},{0,-1},{1,0},{0,1}};
-    
+    // we can approach by the boolean visited also
     public int numIslands(char[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
+        int n = grid.length;
+        int m = grid[0].length;
         
         int count = 0;
-        for(int i=0 ; i<m ; i++){
-            for(int j=0 ; j<n ; j++){
-                if(grid[i][j] == '1'){
-                    dfs(grid , i , j);
-                    count++;
-                }
-            }
+        for(int i=0 ; i<n ; i++){
+          for(int j=0 ; j<m ; j++){
+              if(grid[i][j] == '1'){
+                  dfs(grid , i , j);
+                  count++;
+              }
+          }
         }
-        
         return count;
     }
     
-    public void dfs(char[][] grid , int i , int j){
-        // mark 
+    public static void dfs(char[][] grid , int i , int j){
         grid[i][j] = '0';
         
         for(int d=0 ; d<dir.length ; d++){
