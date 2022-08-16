@@ -1,8 +1,8 @@
 class Solution {
     HashMap<String, PriorityQueue<String>> map;
+    
     public List<String> findItinerary(List<List<String>> tickets) {
         map = new HashMap<>();
-        
         for (List<String> t : tickets) {
             String src = t.get(0);
             String dest = t.get(1);
@@ -16,16 +16,23 @@ class Solution {
             }
         }
         
-        List<String> ans = new ArrayList<>();
-        dfs("JFK", ans);
-        return ans;
+        ArrayList<String> res = new ArrayList<>();
+        dfs("JFK", res);
+        return res;
     }
     
-    public void dfs(String v, List<String> ans){
-        while(map.containsKey(v) == true && map.get(v).size() > 0){
-            String nbr = map.get(v).remove();
-            dfs(nbr, ans);
+    public void dfs(String v, ArrayList<String> res){
+        //reached destination
+        if(map.containsKey(v) == false || map.get(v).size() == 0) {
+            res.add(0, v);
+            return;
         }
-        ans.add(0, v);
+
+        while(map.get(v).size() > 0) {
+            String newSrc = map.get(v).remove();
+            dfs(newSrc, res);
+        }
+
+        res.add(0, v);
     }
 }
