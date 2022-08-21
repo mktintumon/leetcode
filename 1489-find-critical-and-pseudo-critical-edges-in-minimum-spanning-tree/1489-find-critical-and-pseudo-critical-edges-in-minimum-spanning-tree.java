@@ -52,7 +52,7 @@ class Solution {
         }
     }
     
-    static class Edge implements Comparable<Edge> {
+    static class Edge {
         int u;
         int v;
         int wt;
@@ -62,21 +62,17 @@ class Solution {
             this.v = v;
             this.wt = wt;
         }
-        
-        public int compareTo(Edge o){
-            return this.wt - o.wt;
-        }
     }
     
     public int buildMST(int n, int[][] edges, int[] edgeToSkip, int[] edgeToPick){
-         PriorityQueue<Edge> pq = new PriorityQueue<>();
+         PriorityQueue<Edge> pq = new PriorityQueue<>((a , b) ->{
+             return a.wt - b.wt;
+         });
          
          for(int[] edge : edges){
-             if(edge == edgeToSkip){
+             if(edge == edgeToSkip  || edge == edgeToPick ){
                 continue;
-            } else if(edge == edgeToPick){
-                continue;
-            }
+             }
              
             int u = edge[0];
             int v = edge[1];
