@@ -6,7 +6,7 @@ class Solution {
         int left = 0;
         int right = people.length-1;
         
-        while(left <= right){
+        while(left < right){
             // 2 people at a time
             int weight = people[left] + people[right];
             
@@ -20,6 +20,9 @@ class Solution {
                 right--;
             }
         }
+        
+        // if one element left
+        if(left == right) count++;
         
         return count;
     }
