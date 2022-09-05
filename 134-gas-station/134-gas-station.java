@@ -14,6 +14,9 @@ class Solution {
             }
         }
         
-        return totalSum >= 0 ? idx : -1;
+        if(totalSum >= 0) return idx;
+        else{
+            return -1;
+        }
     }
 }
