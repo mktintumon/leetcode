@@ -9,7 +9,7 @@ class Solution {
         }
         
         while(low < high){
-           int mid = low + (high - low) / 2; // allowed limit for partition
+           int mid = (low + high) / 2; // allowed limit for partition
             
             int countParts = 1;
             int partSum = 0;
