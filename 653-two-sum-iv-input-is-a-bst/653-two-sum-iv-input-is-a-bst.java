@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> ans = new ArrayList<>();
+    HashSet<Integer> ans = new HashSet<>();
     
     public boolean findTarget(TreeNode root, int k) {
         if(root == null) return false;
