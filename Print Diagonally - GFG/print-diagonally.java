@@ -38,15 +38,23 @@ class Solution{
     static ArrayList<Integer> downwardDigonal(int n, int A[][]){
         ArrayList<Integer> ans = new ArrayList<>();
         
-        for(int gap=0 ; gap<n ; gap++){
-            for(int i=0 , j=gap ; j>=0 ; i++ , j--){
-                ans.add(A[i][j]);
+        for (int k = 0; k < n; k++){
+            int row = 0;
+            int col = k;
+            while (col >= 0){
+              ans.add(A[row][col]);
+              row++;
+              col--;
             }
-        }
-        
-        for(int gap=1 ; gap<n ; gap++){
-            for(int i=gap , j=n-1 ; i<n ; i++ , j--){
-                ans.add(A[i][j]);
+          }
+         
+        for (int j = 1; j < n; j++){
+            int col = n - 1;
+            int row = j;
+            while (row < n){
+              ans.add(A[row][col]);
+              row++;
+              col--;
             }
         }
         
