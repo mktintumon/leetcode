@@ -37,15 +37,15 @@ class GFG {
 class Solution{
     //Function to count subarrays with sum equal to 0.
     public static long findSubarray(long[] arr ,int n) {
-        HashMap<Long,Long> map = new HashMap<>();
-        long ans = 0;
-        long sum = 0;
-        map.put(sum , (long)1);
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int ans = 0;
+        int sum = 0;
+        map.put(sum , 1);
         for(int i=1 ; i<=n ; i++){
             sum += arr[i-1];
-            map.put(sum , map.getOrDefault(sum,(long)0)+(long)1 );
+            map.put(sum , map.getOrDefault(sum,0)+1 );
             ans += map.get(sum) - 1;
         }
-        return ans;
+        return (long)ans;
     }
 }
