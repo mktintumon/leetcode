@@ -108,6 +108,9 @@ public:
     int helper(Node* root){
         if(root == NULL) return 0;
         
+        helper(root->left);
+        helper(root->right);
+        
         if(root->left != NULL & root->right != NULL){
             int val = gcd(root->left->data , root->right->data);
             if(val > max_gcd || val == max_gcd && root->data > node ){
@@ -116,8 +119,6 @@ public:
             }
         }
         
-        helper(root->left);
-        helper(root->right);
         return node;
     }
     
