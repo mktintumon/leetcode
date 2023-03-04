@@ -44,16 +44,10 @@ class Solution {
         int i = 0;
         int j = 0;
         
-        while(j < n){
+        for( ; j < n ; j++)
             if(arr[j] == 0){
                 swap(arr, i , j);
                 i++;
-                j++;
             }
-            else{
-                j++;
-            }
-        }
     }
-
 }
